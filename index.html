@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Luis Hian - Portfólio</title>
+</head>
+
+<body>
+  <div class="particulas"></div>
+
+  <nav class="navegacao">
+    <ul class="menu">
+      <li><a href="#inicio" class="menu-link">Início</a></li>
+      <li><a href="#sobre" class="menu-link">Sobre</a></li>
+      <li><a href="#habilidades" class="menu-link">Habilidades</a></li>
+      <li><a href="#linkedin" class="menu-link">LinkedIn</a></li>
+      <li><a href="#contatos" class="menu-link">Contatos</a></li>
+    </ul>
+  </nav>
+
+  <main id="inicio" class="cabecalho">
+    <img src="./img/luishian2.png" alt="Foto de Luis Hian" class="foto-perfil" />
+    <h1>Luis Hian</h1>
+    <p class="cabecalho-sub-titulo">Analista de Suporte | Infraestrutura e Redes | Foco em Gestão de TI</p>
+  </main>
+
+  <section id="sobre" class="sobre">
+    <h2 class="sobre-titulo">Sobre Mim</h2>
+    <div class="sobre-caixa">
+      <p class="sobre-paragrafo">
+       Sou profissional de TI, com 20 anos, formado em Tecnólogo em Administração e cursando Bacharelado em Sistemas de Informação. Tenho experiência em suporte técnico, Google Workspace, Active Directory, redes, manutenção de computadores, software, sistemas e montagem de hardware, com atuação prática desde estagiário até minha efetivação. Busco crescimento na área, visando cargos de maior responsabilidade e uma carreira sólida com estabilidade financeira.
+
+      </p>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades" class="habilidades">
+    <h2 class="habilidades-titulo">Habilidades</h2>
+
+    <div class="habilidades-caixa">
+      <span>Active Directory</span>
+      <span>Redes</span>
+      <span>Infraestrutura de TI</span>
+      <span>Hardware</span>
+      <span>Windows Server</span>
+      <span>Google Workspace</span>
+      <span>Suporte Técnico</span>
+    </div>
+  </section>
+
+  <!-- LINKEDIN -->
+  <section id="linkedin" class="linkedin">
+    <h2 class="linkedin-titulo">Meu LinkedIn</h2>
+
+    <div class="linkedin-caixa">
+      <a href="https://www.linkedin.com/in/luis-hian-1635a52b6" target="_blank" class="link-card">
+        <div class="projetos-card">
+          <img src="./img/projeto2.png" alt="LinkedIn" class="projetos-imagem" />
+          <div class="caixa-textos-projetos">
+            <h3 class="info-projetos">Acessar Perfil</h3>
+            <p class="paragrafo-projetos">
+              Veja minha experiência profissional, certificações e evolução na área de TI.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  
+
+  <!-- CONTATO -->
+  <section id="contatos" class="contatos">
+    <h2 class="contatos-titulo">Entre em Contato</h2>
+
+    <form class="formulario-contato" id="formulario">
+      <div class="grupo-form">
+        <input placeholder="Nome" class="campo-form" id="nome" required />
+      </div>
+
+      <div class="grupo-form">
+        <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="4" id="mensagem" required></textarea>
+      </div>
+
+      <button type="submit" class="botao-form">Enviar Whatsapp</button>
+    </form>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const formulario = document.getElementById('formulario');
+
+      formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const nome = document.getElementById('nome').value.trim();
+        const mensagem = document.getElementById('mensagem').value.trim();
+        const telefone = '5571996000514';
+
+        const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+        const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
+
+        window.open(url, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
