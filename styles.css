@@ -1,15 +1,15 @@
-{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
 html {
 scroll-behavior: smooth;
 }
 
-{
+:root {
 --primaria: #4f46e5;
 --secundaria: #7c3aed;
 --escuro: #0f172a;
@@ -86,7 +86,6 @@ animation: flutuar 5s ease-in-out infinite;
 h1 {
 font-size: 3.5rem;
 color: var(--primaria);
-font-weight: bold;
 margin: 20px;
 text-align: center;
 }
@@ -150,11 +149,10 @@ padding: 0.8rem 1.5rem;
 border-radius: 20px;
 border: 1px solid var(--vidro);
 background: rgba(255, 255, 255, 0.05);
-transition: all 0.3s ease;
-font-size: 0.95rem;
+transition: 0.3s;
 }
 
-.habilidades-caixa span {
+.habilidades-caixa span:hover {
 background: linear-gradient(45deg, var(--primaria), var(--secundaria));
 transform: scale(1.1);
 box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
@@ -185,72 +183,39 @@ text-align: center;
 .email p {
 margin-top: 10px;
 font-size: 1.2rem;
-background: rgba(255, 255, 255, 0.05);
 display: inline-block;
 padding: 1rem 2rem;
 border-radius: 12px;
-border: 1px solid var(--vidro);
-transition: 0.3s;
+position: relative;
+color: var(--claro);
+z-index: 1;
 }
 
-.email p {
-background: var(--primaria);
-transform: scale(1.05);
+/* BORDA ANIMADA */
+.email p::before {
+content: "";
+position: absolute;
+inset: -2px;
+border-radius: 14px;
+background: linear-gradient(270deg, var(--primaria), var(--secundaria), var(--primaria));
+background-size: 400% 400%;
+animation: bordaAnimada 6s ease infinite;
+z-index: -1;
 }
 
-/* PROJETOS */
-.projetos {
-padding: 6rem 2rem;
+.email p::after {
+content: "";
+position: absolute;
+inset: 2px;
+background: var(--escuro);
+border-radius: 10px;
+z-index: -1;
 }
 
-.projetos-titulo {
-text-align: center;
-font-size: 2.5rem;
-margin-bottom: 50px;
-}
-
-.projetos-caixa {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 2rem;
-max-width: 1200px;
-margin: 0 auto;
-}
-
-.projetos-card {
-background-color: rgba(255, 255, 255, 0.05);
-border-radius: 16px;
-backdrop-filter: blur(5px);
-border: 1px solid var(--vidro);
-overflow: hidden;
-transition: all 0.5s ease;
-}
-
-.projetos-card {
-box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
-transform: translateY(-10px) scale(1.03);
-cursor: pointer;
-}
-
-.projetos-imagem {
-height: 200px;
-width: 100%;
-object-fit: cover;
-}
-
-.info-projetos {
-font-size: 1.5rem;
-margin-bottom: 0.5rem;
-color: var(--primaria);
-}
-
-.paragrafo-projetos {
-color: rgba(226, 232, 240, 0.8);
-line-height: 1.4rem;
-}
-
-.caixa-textos-projetos {
-padding: 1.5rem;
+@keyframes bordaAnimada {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
 }
 
 /* CONTATO */
@@ -284,7 +249,7 @@ border: 1px solid var(--vidro);
 outline: none;
 }
 
-.campo-form {
+.campo-form:focus {
 border-color: var(--secundaria);
 box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
 }
@@ -293,6 +258,7 @@ box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
 margin-bottom: 1.5rem;
 }
 
+/* BOTÃO */
 .botao-form {
 background: linear-gradient(45deg, var(--primaria), var(--secundaria));
 padding: 1rem;
@@ -301,32 +267,21 @@ border-radius: 8px;
 cursor: pointer;
 font-weight: bold;
 width: 100%;
-transition: all 0.5s ease;
+transition: 0.3s;
 }
 
-.botao-form {
+.botao-form:hover {
 transform: translateY(-4px);
 box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
 }
 
-/* LINK CARD */
-.link-card {
-text-decoration: none;
-color: inherit;
-display: block;
-}
-
-/* BACKGROUND */
+/* BACKGROUND LIMPO */
 .particulas {
 position: fixed;
 width: 100%;
 height: 100%;
 z-index: -1;
-opacity: 0.5;
-background:
-radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
-radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%),
-var(--maisEscuro);
+background: linear-gradient(120deg, var(--maisEscuro), var(--escuro));
 }
 
 /* ANIMAÇÃO */
@@ -339,38 +294,33 @@ var(--maisEscuro);
 @media (max-width: 768px) {
 
 .foto-perfil {
-    width: 200px;
-    height: 200px;
+width: 200px;
+height: 200px;
 }
 
 h1 {
-    font-size: 2rem;
+font-size: 2rem;
 }
 
 .cabecalho-sub-titulo {
-    font-size: 1.2rem;
+font-size: 1.2rem;
 }
 
 .menu {
-    gap: 1.5rem;
-    flex-wrap: wrap;
+gap: 1.5rem;
+flex-wrap: wrap;
 }
 
 .sobre,
-.projetos,
 .contatos,
 .habilidades,
 .linkedin,
 .email {
-    padding: 4rem 1rem;
-}
-
-.projetos-caixa {
-    grid-template-columns: 1fr;
+padding: 4rem 1rem;
 }
 
 .formulario-contato {
-    padding: 1.5rem;
+padding: 1.5rem;
+}
 }
 
-}
